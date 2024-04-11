@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const width = 12
     console.log(squares)
 
-    //shapes
+    //shapes, array of shapes with each shape property including an array of 4 shape positions
     const lShape = [ // L-Shape
-        [0, width, width * 2, 1],
+        [0, width, width * 2, 1], //shape position -> index 0, 12, 24, 1
         [width, width + 1, width + 2, width * 2 + 2],
         [1, width + 1, width * 2 + 1, width * 2],
         [width, width * 2, width * 2 + 1, width * 2 + 2]
@@ -43,20 +43,49 @@ document.addEventListener("DOMContentLoaded", () => {
     ]
     //Array that contains all shapes
     const allShapes = [lShape, longShape, zShape, bShape, tShape]
-
+    // starting location on grid of shapes
     let shapePosition = 5
-    let currentShape = allShapes[4][0]
+    //lenght of allShapes array to get total count of shapes
+    let maxShapes = allShapes.length
+    let ShapeRotation = 0
+    console.log(maxShapes);
+    // random number: source https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max)
+      }
+    // selects the current shape randomly, selects rotation
+    let currentShape = allShapes[getRandomInt(maxShapes)][ShapeRotation]
 
     console.log(shapePosition)
     console.log(currentShape)
 
+// SHAPE MOVEMENTS
     //draw the shape on grid
     function draw() {
         currentShape.forEach(index => {
             squares[shapePosition + index].classList.add('shapes')
         })
     }
-    
-    draw()
+    // removes the shape from the grid
+    function remove() {
+        currentShape.forEach(index => {
+            squares[shapePosition + index].classList.remove('shapes')
+        })
+    }
+
+    //move shape down 1 row
+    function dropShape() {
+        remove()
+        shapePosition = shapePosition + width
+        draw()
+    }
+    //drops shape down every second/speed variation
+    dropSpeed = setInterval(dropShape, 1000)
+
+    //stops shape
+    if (currentShape.some(index => squares[shapePosition+index + width].classList.contains('blocked'))) {
+        currentShape.forEach(index =>)
+    }
+
 }
 )
