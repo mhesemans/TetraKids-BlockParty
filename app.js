@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     // selects the current shape randomly, selects rotation
     let currentShape = allShapes[getRandomInt(maxShapes)][ShapeRotation]
+    let nextShape = allShapes[getRandomInt(maxShapes)][ShapeRotation]
 
     console.log(shapePosition)
     console.log(currentShape)
@@ -78,14 +79,20 @@ document.addEventListener("DOMContentLoaded", () => {
         remove()
         shapePosition = shapePosition + width
         draw()
+        stopShape()
     }
     //drops shape down every second/speed variation
     dropSpeed = setInterval(dropShape, 1000)
 
-    //stops shape
+    //stops shape and generates new shape
+    function stopShape() {
     if (currentShape.some(index => squares[shapePosition+index + width].classList.contains('blocked'))) {
-        currentShape.forEach(index =>)
+        currentShape.forEach(index => squares[shapePosition+index].classList.add('blocked'))
+        currentShape = allShapes[getRandomInt(maxShapes)][ShapeRotation]
+        shapePosition = 5
+        draw()
     }
+}
 
 }
 )
