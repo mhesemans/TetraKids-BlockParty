@@ -84,6 +84,17 @@ document.addEventListener("DOMContentLoaded", () => {
     //drops shape down every second/speed variation
     dropSpeed = setInterval(dropShape, 1000)
 
+    // move shape left
+    function left() {
+        remove() // removes shape from grid
+        const leftSide = currentShape.some(index => (shapePosition + index)% width === 0) //checks if shape is leftmost of grid
+        if(!leftSide) shapePosition = shapePosition - 1 //if not leftmost, move shape left by 1
+        if (currentShape.some(index => squares[shapePosition + index].classList.contains('blocked'))){
+        shapePosition = shapePosition + 1
+        }//undoes move if shape moved into a blocked square
+        draw() //draws shape on grid
+    }
+
     //stops shape and generates new shape
     function stopShape() {
     if (currentShape.some(index => squares[shapePosition+index + width].classList.contains('blocked'))) {
