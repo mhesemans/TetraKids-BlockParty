@@ -87,13 +87,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // move shape left
     function left() {
         remove() // removes shape from grid
-        const leftSide = currentShape.some(index => (shapePosition + index)% width === 0) //checks if shape is leftmost of grid
-        if(!leftSide) shapePosition = shapePosition - 1 //if not leftmost, move shape left by 1
+        const leftSide = currentShape.some(index => (shapePosition + index) % width === 0) //checks if shape is leftmost of grid
+        console.log(leftSide)
+        if(!leftSide) shapePosition -= 1 //if not leftmost, move shape left by 1
+        console.log(shapePosition)
         if (currentShape.some(index => squares[shapePosition + index].classList.contains('blocked'))){
         shapePosition = shapePosition + 1
         }//undoes move if shape moved into a blocked square
+        console.log(shapePosition)
         draw() //draws shape on grid
     }
+
+    document.getElementById("moveLeft").addEventListener("click", left)
 
     //stops shape and generates new shape
     function stopShape() {
