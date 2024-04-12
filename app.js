@@ -81,6 +81,9 @@ document.addEventListener("DOMContentLoaded", () => {
         draw()
         stopShape()
     }
+    //calls dropShape function when button "dropShape" is clicked
+    document.getElementById("dropShape").addEventListener("click", dropShape)
+
     //drops shape down every second/speed variation
     dropSpeed = setInterval(dropShape, 1000)
 
@@ -89,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
         remove() // removes shape from grid
         const leftSide = currentShape.some(index => (shapePosition + index) % width === 0) //checks if shape is leftmost of grid
         console.log(leftSide)
-        if(!leftSide) shapePosition -= 1 //if not leftmost, move shape left by 1
+        if(!leftSide) shapePosition = shapePosition - 1 //if not leftmost, move shape left by 1
         console.log(shapePosition)
         if (currentShape.some(index => squares[shapePosition + index].classList.contains('blocked'))){
         shapePosition = shapePosition + 1
@@ -97,8 +100,24 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(shapePosition)
         draw() //draws shape on grid
     }
-
+    //calls left function when button "moveLeft" is clicked
     document.getElementById("moveLeft").addEventListener("click", left)
+
+    // move shape right
+    function right() {
+        remove() // removes shape from grid
+        const rightSide = currentShape.some(index => (shapePosition + index) % width === width-1) //checks if shape is rightmost of grid
+        console.log(rightSide)
+        if(!rightSide) shapePosition = shapePosition + 1 //if not rightmost, move shape right by 1
+        console.log(shapePosition)
+        if (currentShape.some(index => squares[shapePosition + index].classList.contains('blocked'))){
+        shapePosition = shapePosition - 1
+        }//undoes move if shape moved into a blocked square
+        console.log(shapePosition)
+        draw() //draws shape on grid
+    }
+    //calls right function when button "moveRight" is clicked
+    document.getElementById("moveRight").addEventListener("click", right)
 
     //stops shape and generates new shape
     function stopShape() {
