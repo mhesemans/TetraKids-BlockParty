@@ -29,3 +29,10 @@ section {
 .shapes {
     background-color: darkorange;
 }
+
+/* div with centered content */
+.flexCenter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
