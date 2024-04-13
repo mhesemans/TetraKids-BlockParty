@@ -57,3 +57,7 @@ But at that stage I realized that the flipShape function I was using had the lin
 
 I've tested the functionality of the flipShape() function and the error no longer occurs.
 
+
+Moving an object with arrow keys:
+
+https://www.youtube.com/watch?v=Pg1UqzZ5NQM
