@@ -54,7 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return Math.floor(Math.random() * max)
       }
     // selects the current shape randomly, selects rotation
-    let currentShape = allShapes[getRandomInt(maxShapes)][ShapeRotation]
+    let selectShape = getRandomInt(maxShapes)
+    let currentShape = allShapes[selectShape][ShapeRotation]
     let nextShape = allShapes[getRandomInt(maxShapes)][ShapeRotation]
 
     console.log(shapePosition)
@@ -119,11 +120,29 @@ document.addEventListener("DOMContentLoaded", () => {
     //calls right function when button "moveRight" is clicked
     document.getElementById("moveRight").addEventListener("click", right)
 
+    // flip shape
+    function flipShape() {
+        remove()
+        let flipPosition = ShapeRotation === 0 ? 1
+                        : ShapeRotation === 1 ? 2
+                        : ShapeRotation === 2 ? 3
+                        : ShapeRotation === 3 ? 4
+                        : 0
+        ShapeRotation = flipPosition
+        console.log(ShapeRotation)
+        currentShape = allShapes[selectShape][ShapeRotation]
+        draw()
+    }
+
+     //calls flipShape function when button "flipShape" is clicked
+     document.getElementById("flipShape").addEventListener("click", flipShape)
+
     //stops shape and generates new shape
     function stopShape() {
     if (currentShape.some(index => squares[shapePosition+index + width].classList.contains('blocked'))) {
         currentShape.forEach(index => squares[shapePosition+index].classList.add('blocked'))
-        currentShape = allShapes[getRandomInt(maxShapes)][ShapeRotation]
+        selectShape = getRandomInt(maxShapes)
+        currentShape = allShapes[selectShape][ShapeRotation]
         shapePosition = 5
         draw()
     }
