@@ -43,17 +43,17 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     const mirrorLShape = [
-        [0, width, width * 2, width * 2 + 1],
-        [width + 2, width * 2, width * 2 + 1, width * 2 + 2],
         [0, 1, width + 1, width * 2 + 1],
-        [width, width + 1, width + 2, width * 2],
+        [2, width + 2, width + 1, width],
+        [width * 2 + 1,  width * 2, width, 0],
+        [width, 0, 1, 2],
     ];
 
     const mirrorZShape = [
         [1, width, width + 1, width * 2],
-        [0, width, width + 1, width * 2 + 1],
         [0, 1, width + 1, width + 2],
-        [width, width + 1, width * 2 - 1, width * 2]
+        [1, width, width + 1, width * 2],
+        [0, 1, width + 1, width + 2],
     ];
 
     const singleSquare = [
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     //Array that contains all shapes
-    const allShapes = [lShape, longShape, zShape, bShape, tShape, mirrorLShape, mirrorZShape, singleSquare, doubleSquare, tripleSquare];
+    const allShapes = [lShape,longShape, zShape, bShape, tShape, mirrorLShape, mirrorZShape, singleSquare, doubleSquare, tripleSquare];
     // starting location on grid of shapes
     let shapePosition = 5;
     //lenght of allShapes array to get total count of shapes
@@ -192,6 +192,9 @@ document.addEventListener("DOMContentLoaded", () => {
             draw();
         }
     }
+
+
+   
 
 }
 )
