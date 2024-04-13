@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const startBtn = document.getElementById("start_btn");
     let squares = Array.from(document.querySelectorAll(".grid div"));
     const width = 12;
+    let dropSpeed
     console.log(squares);
 
     //shapes, array of shapes with each shape property including an array of 4 shape positions
@@ -123,10 +124,17 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.keyCode === 40) { dropShape() }
     }); //shape movement based on https://www.youtube.com/watch?v=Pg1UqzZ5NQM
 
-    //drops shape down every second/speed variation
-    dropSpeed = setInterval(dropShape, 1000);
-
-    // move shape left
+    //start/pause functionality for start button
+    startBtn.addEventListener("click", () =>{
+        if (dropSpeed) {
+            clearInterval(dropSpeed);
+            dropSpeed = null;
+        } else {
+            draw();
+            dropSpeed = setInterval(dropShape, 1000);
+        }
+    })
+ 
     function left() {
         remove(); // removes shape from grid
         const leftSide = currentShape.some(index => (shapePosition + index) % width === 0); //checks if shape is leftmost of grid
