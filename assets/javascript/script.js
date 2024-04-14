@@ -3,9 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const score = document.getElementById("score");
     let scoredPoints = 0
     const startBtn = document.getElementById("start_btn");
+    const speedUpBtn = document.getElementById("speedUp");
+    const speedDownBtn = document.getElementById("speedDown");
     let squares = Array.from(document.querySelectorAll(".grid div"));
     const width = 12;
     let dropSpeed
+    let speed = 1000
     console.log(squares);
 
     //shapes, array of shapes with each shape property including an array of 4 shape positions
@@ -132,9 +135,26 @@ document.addEventListener("DOMContentLoaded", () => {
             dropSpeed = null;
         } else {
             draw();
-            dropSpeed = setInterval(dropShape, 1000);
+            dropSpeed = setInterval(dropShape, speed);
         }
-    })
+    });
+
+    //speed up modifier
+    speedUpBtn.addEventListener("click", () =>{
+        if(speed>600) {
+            speed -= 200;
+            console.log(speed);
+        }
+    });
+
+    //speed down modifier
+    speedDownBtn.addEventListener("click", () =>{
+        if(speed<1600) {
+            speed += 200;
+            console.log(speed);
+        }
+    });
+
     // move shape left
     function left() {
         remove(); // removes shape from grid
@@ -147,6 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }//undoes move if shape moved into a blocked square
         console.log(shapePosition);
         draw(); //draws shape on grid
+        stopShape();
     }
     //calls left function when button "moveLeft" is clicked
     document.getElementById("moveLeft").addEventListener("click", left);
@@ -166,6 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }//undoes move if shape moved into a blocked square
         console.log(shapePosition);
         draw(); //draws shape on grid
+        stopShape();
     }
     //calls right function when button "moveRight" is clicked
     document.getElementById("moveRight").addEventListener("click", right);
@@ -195,11 +217,12 @@ document.addEventListener("DOMContentLoaded", () => {
     function stopShape() {
         if (currentShape.some(index => squares[shapePosition + index + width].classList.contains('blocked'))) {
             currentShape.forEach(index => squares[shapePosition + index].classList.add('blocked'));
+            scorePoints();
             selectShape = getRandomInt(maxShapes);
             currentShape = allShapes[selectShape][ShapeRotation];
             shapePosition = 5;
             draw();
-            scorePoints();
+            
         }
     }
 
