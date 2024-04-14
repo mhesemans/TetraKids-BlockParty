@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const grid = document.querySelector(".grid");
     const score = document.getElementById("score");
+    let scoredPoints = 0
     const startBtn = document.getElementById("start_btn");
     let squares = Array.from(document.querySelectorAll(".grid div"));
     const width = 12;
@@ -124,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.keyCode === 40) { dropShape() }
     }); //shape movement based on https://www.youtube.com/watch?v=Pg1UqzZ5NQM
 
-    //start/pause functionality for start button
+    //start/pause functionality for start button to drop the shapes
     startBtn.addEventListener("click", () =>{
         if (dropSpeed) {
             clearInterval(dropSpeed);
@@ -134,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
             dropSpeed = setInterval(dropShape, 1000);
         }
     })
- 
+    // move shape left
     function left() {
         remove(); // removes shape from grid
         const leftSide = currentShape.some(index => (shapePosition + index) % width === 0); //checks if shape is leftmost of grid
@@ -198,11 +199,39 @@ document.addEventListener("DOMContentLoaded", () => {
             currentShape = allShapes[selectShape][ShapeRotation];
             shapePosition = 5;
             draw();
+            scorePoints();
         }
     }
 
-
-   
+// increases scored points
+function scorePoints() {
+    for (let row = 23; row >= 0; row--) { // Start from the bottom row
+        const rowIndexes = Array.from({ length: width }, (unused, i) => row * width + i);
+        if (rowIndexes.every(index => squares[index].classList.contains("blocked"))) { //checks if all squares have the class of blocked
+            console.log("Previous Score: ", scoredPoints);
+            scoredPoints++;
+            console.log("New Score: ", scoredPoints);
+            score.innerHTML = scoredPoints;
+            rowIndexes.forEach(index => {
+                squares[index].classList.remove("blocked");
+                squares[index].classList.remove("shapes"); //undraws the squares from the grid
+            });
+            // Move non-blocked cells down
+            for (let i = row - 1; i >= 0; i--) {
+                const currentRowIndexes = Array.from({ length: width }, (unused, j) => i * width + j); //generates an array of indexes of current row (i)
+                currentRowIndexes.forEach(index => {
+                    const cell = squares[index];
+                    const cellBelow = squares[index + width];
+                    if (!cellBelow.classList.contains("blocked")) { //if square below row is not blocked
+                        cellBelow.className = cell.className; // Move class to the cell below
+                        cell.className = ""; // Clear current cell
+                    }
+                });
+            }
+            row++; // Recheck the same row since cells have moved down
+        }
+    }
+}
 
 }
 )
