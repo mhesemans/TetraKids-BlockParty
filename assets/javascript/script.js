@@ -139,21 +139,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    //speed up modifier
-    speedUpBtn.addEventListener("click", () =>{
-        if(speed>600) {
-            speed -= 200;
-            console.log(speed);
-        }
-    });
+    // //speed up modifier
+    // speedUpBtn.addEventListener("click", () =>{
+    //     if(speed>600) {
+    //         speed -= 200;
+    //         console.log(speed);
+    //     }
+    // });
 
-    //speed down modifier
-    speedDownBtn.addEventListener("click", () =>{
-        if(speed<1600) {
-            speed += 200;
-            console.log(speed);
-        }
-    });
+    // //speed down modifier
+    // speedDownBtn.addEventListener("click", () =>{
+    //     if(speed<1600) {
+    //         speed += 200;
+    //         console.log(speed);
+    //     }
+    // });
 
     // move shape left
     function left() {
