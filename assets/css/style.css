@@ -30,6 +30,15 @@ section {
     background-color: darkorange;
 }
 
+/* styling for blocked squares
+Used outline instead of borders are border increases the size of the div
+used outline-offset for the same width as the outline otherwise the outline width takes up unblocked squares' space */
+.blocked {
+    background-color: gray;
+    outline: 2px outset  rgb(207, 156, 156); 
+    outline-offset: -2px;    
+}
+
 /* div with centered content */
 .flexCenter {
     display: flex;
