@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
             shapePosition = 5;
             changeColour();
             draw();
-            
+            endGame();
         }
     }
 
@@ -256,10 +256,10 @@ function scorePoints() {
                 const currentRowIndexes = Array.from({ length: width }, (unused, j) => i * width + j); //generates an array of indexes of current row (i)
                 currentRowIndexes.forEach(index => {
                     const cell = squares[index];
-                    const cellBelow = squares[index + width];
+                    const cellBelow = squares[index + width]; //increases current squares index by width to get 1 row lower
                     if (!cellBelow.classList.contains("blocked")) { //if square below row is not blocked
                         cellBelow.className = cell.className; // Move class to the cell below
-                        cell.className = ""; // Clear current cell
+                        cell.className = ""; // Clear current cell's class
                     }
                 });
             }
@@ -267,6 +267,13 @@ function scorePoints() {
         }
     }
 }
-
+// End game if starting position is blocked
+function endGame() {
+    if (currentShape.some(index => squares[shapePosition + index].classList.contains("blocked") )) {
+        clearInterval(dropSpeed);
+        console.log("game ended");
+        alert("Game Over! You scored " + scoredPoints + "points!");
+    }
+}
 }
 )
