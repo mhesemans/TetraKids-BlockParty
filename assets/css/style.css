@@ -4,6 +4,7 @@ main {
     align-items: center;
     width: 100%;
 }
+
 /* game background */
 section {
     width: 320px;
@@ -12,22 +13,27 @@ section {
     flex-direction: column;
     align-items: center;
 }
+
 /* game"field" */
-.grid{
+.grid {
     width: 240px;
     height: 480px;
     background-color: aqua;
     display: flex;
     flex-wrap: wrap;
 }
+
 /* individual grid locations */
-.grid div{
+.grid div {
     width: 20px;
     height: 20px;
 }
+
 /*styling for all shapes */
 .shapes {
     background-color: darkorange;
+    outline: 2px outset rgb(207, 156, 156);
+    outline-offset: -2px;
 }
 
 /* styling for blocked squares
@@ -35,8 +41,8 @@ Used outline instead of borders are border increases the size of the div
 used outline-offset for the same width as the outline otherwise the outline width takes up unblocked squares' space */
 .blocked {
     background-color: gray;
-    outline: 2px outset  rgb(207, 156, 156); 
-    outline-offset: -2px;    
+    outline: 2px outset rgb(207, 156, 156);
+    outline-offset: -2px;
 }
 
 /* div with centered content */
@@ -44,4 +50,28 @@ used outline-offset for the same width as the outline otherwise the outline widt
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.red {
+    background-color: red;
+    outline: 2px outset rgb(207, 156, 156);
+    outline-offset: -2px;
+}
+
+.orange {
+    background-color: orange;
+    outline: 2px outset rgb(207, 156, 156);
+    outline-offset: -2px;
+}
+
+.yellow {
+    background-color: yellow;
+    outline: 2px outset rgb(207, 156, 156);
+    outline-offset: -2px;
+}
+
+.green {
+    background-color: green;
+    outline: 2px outset rgb(207, 156, 156);
+    outline-offset: -2px;
 }
