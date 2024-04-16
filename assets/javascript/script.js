@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const grid = document.querySelector(".grid");
     const score = document.getElementById("score");
+    const shapesClass = document.getElementsByClassName("shapes");
     let scoredPoints = 0
     const startBtn = document.getElementById("start_btn");
     const speedUpBtn = document.getElementById("speedUp");
@@ -101,6 +102,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log(shapePosition);
     console.log(currentShape);
+
+    // change shape colour
+    function changeColour(){
+        let shapeColour = selectShape === 7 ? "red" //checks index of ShapeRotation and provides value to flipPosition
+                        : selectShape === 8 ? "orange"
+                        : selectShape === 9 ? "yellow"
+                        : "green";
+    console.log(shapeColour);
+    }
 
     // SHAPE MOVEMENTS
     //draw the shape on grid
@@ -217,10 +227,12 @@ document.addEventListener("DOMContentLoaded", () => {
     function stopShape() {
         if (currentShape.some(index => squares[shapePosition + index + width].classList.contains('blocked'))) {
             currentShape.forEach(index => squares[shapePosition + index].classList.add('blocked'));
+            currentShape.forEach(index => squares[shapePosition + index].classList.remove('shapes'));
             scorePoints();
             selectShape = getRandomInt(maxShapes);
             currentShape = allShapes[selectShape][ShapeRotation];
             shapePosition = 5;
+            changeColour();
             draw();
             
         }
