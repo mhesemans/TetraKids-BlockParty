@@ -142,18 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
     draw();
     stopShape();
   }
-   //start/pause functionality for start button to drop the shapes
-   startBtn.addEventListener("click", () => {
-    if (dropSpeed) {
-      clearInterval(dropSpeed);
-      dropSpeed = null;
-    } else {
-      draw();
-      dropSpeed = setInterval(dropShape, speed);
-      activateControls();
-      startBtn.classList.add("hide")
-    }
-  });
 
   // move shape left
   function left() {
@@ -358,6 +346,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  //start/pause functionality for start button to drop the shapes
+  startBtn.addEventListener("click", () => {
+    draw();
+    dropSpeed = setInterval(dropShape, speed);
+    activateControls();
+    startBtn.classList.add("hide");
+  });
 
   // selects the current shape randomly, selects rotation
   selectShape = getRandomInt(maxShapes);
