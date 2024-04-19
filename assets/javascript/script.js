@@ -116,7 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
         : selectShape === 9
         ? "yellow"
         : "green";
-    console.log(shapeColour);
   }
 
   // SHAPE MOVEMENTS
@@ -160,9 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const leftSide = currentShape.some(
       (index) => (shapePosition + index) % width === 0
     ); //checks if shape is leftmost of grid
-    console.log(leftSide);
     if (!leftSide) shapePosition = shapePosition - 1; //if not leftmost, move shape left by 1
-    console.log(shapePosition);
     if (
       currentShape.some((index) =>
         squares[shapePosition + index].classList.contains("blocked")
@@ -170,7 +167,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
       shapePosition = shapePosition + 1;
     } //undoes move if shape moved into a blocked square
-    console.log(shapePosition);
     draw(); //draws shape on grid
     stopShape();
   }
@@ -181,9 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const rightSide = currentShape.some(
       (index) => (shapePosition + index) % width === width - 1
     ); //checks if shape is rightmost of grid
-    console.log(rightSide);
     if (!rightSide) shapePosition = shapePosition + 1; //if not rightmost, move shape right by 1
-    console.log(shapePosition);
     if (
       currentShape.some((index) =>
         squares[shapePosition + index].classList.contains("blocked")
@@ -191,7 +185,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
       shapePosition = shapePosition - 1;
     } //undoes move if shape moved into a blocked square
-    console.log(shapePosition);
     draw(); //draws shape on grid
     stopShape();
   }
@@ -208,7 +201,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ? 3
         : 0;
     ShapeRotation = flipPosition; // gives ShapeRotation the flipPosition value
-    console.log(ShapeRotation);
     currentShape = allShapes[selectShape][ShapeRotation]; //updates currentShape with rotation index
     draw();
   }
@@ -253,9 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
         )
       ) {
         //checks if all squares have the class of blocked
-        console.log("Previous Score: ", scoredPoints);
         scoredPoints++;
-        console.log("New Score: ", scoredPoints);
         score.innerHTML = scoredPoints;
         rowIndexes.forEach((index) => {
           squares[index].classList.remove("blocked");
@@ -289,7 +279,6 @@ document.addEventListener("DOMContentLoaded", () => {
       )
     ) {
       clearInterval(dropSpeed);
-      console.log("game ended");
       alert("Game Over! You scored " + scoredPoints + "points!");
     }
     deactivateControls();
