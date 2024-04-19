@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
     currentShape.forEach((index) => {
       squares[shapePosition + index].classList.add("shapes");
       const square = squares[shapePosition + index];
-        square.classList.add(shapeColour); // Add the new color class
+      square.classList.add(shapeColour); // Add the new color class
     });
   }
   // removes the shape from the grid
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     currentShape.forEach((index) => {
       squares[shapePosition + index].classList.remove("shapes");
       const square = squares[shapePosition + index];
-        square.classList.remove('red', 'orange', 'yellow', 'green'); // Remove any existing color class
+      square.classList.remove("red", "orange", "yellow", "green"); // Remove any existing color class
     });
   }
   //move shape down 1 row
@@ -217,21 +217,24 @@ document.addEventListener("DOMContentLoaded", () => {
   function stopShape() {
     if (
       currentShape.some((index) =>
-        squares[shapePosition + index + width].classList.contains("blocked")
+        squares[shapePosition + index + width].classList.contains("blocked") //executes if any squares below moving shape are blocked
       )
     ) {
       currentShape.forEach((index) => {
         const square = squares[shapePosition + index];
-        square.classList.add("blocked");
-        square.classList.remove("shapes", "red", "orange", "yellow", "green");
-    });
-      scorePoints();
-      selectShape = getRandomInt(maxShapes);
-      currentShape = allShapes[selectShape][ShapeRotation];
+        square.classList.add("blocked"); //stops block, changes colour to grey
+        square.classList.remove("shapes", "red", "orange", "yellow", "green"); //removes colours from blocks
+      });
+      scorePoints(); //calls to check if points are scored
+      //
+      //generates new shape on grid, sets colour and position
+      //
+      selectShape = getRandomInt(maxShapes); 
+      currentShape = allShapes[selectShape][ShapeRotation]; 
       changeColour();
       shapePosition = 5;
       draw();
-      endGame();
+      endGame(); // calls to check if new shape position colided with any blocked squares and ends game
     }
   }
 
@@ -288,6 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("game ended");
       alert("Game Over! You scored " + scoredPoints + "points!");
     }
+    deactivateControls();
   }
 
   //shape movement based on https://www.youtube.com/watch?v=Pg1UqzZ5NQM
@@ -315,7 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
         right();
       }
     });
-    
+
     //calls flipShape function when button "flipShape" is clicked
     document.getElementById("flipShape").addEventListener("click", flipShape);
     document.addEventListener("keydown", (e) => {
@@ -325,10 +329,45 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  activateControls()
+  function deactivateControls() {
+    //calls dropShape function when button "dropShape" is clicked
+    document.getElementById("dropShape").removeEventListener("click", dropShape);
+    document.removeEventListener("keydown", (e) => {
+      if (e.keyCode === 40) {
+        dropShape();
+      }
+    });
 
-    // selects the current shape randomly, selects rotation
-    selectShape = getRandomInt(maxShapes);
-    currentShape = allShapes[selectShape][ShapeRotation];
-    changeColour();
+    //calls left function when button "moveLeft" is clicked
+    document.getElementById("moveLeft").removeEventListener("click", left);
+    document.removeEventListener("keydown", (e) => {
+      if (e.keyCode === 37) {
+        left();
+      }
+    });
+
+    //calls right function when button "moveRight" is clicked
+    document.getElementById("moveRight").removeEventListener("click", right);
+    document.removeEventListener("keydown", (e) => {
+      if (e.keyCode === 39) {
+        right();
+      }
+    });
+
+    //calls flipShape function when button "flipShape" is clicked
+    document.getElementById("flipShape").removeEventListener("click", flipShape);
+    document.removeEventListener("keydown", (e) => {
+      if (e.keyCode === 38) {
+        flipShape();
+      }
+    });
+  }
+
+// activates movement inputs
+  activateControls();
+  // selects the current shape randomly, selects rotation
+  selectShape = getRandomInt(maxShapes);
+  currentShape = allShapes[selectShape][ShapeRotation];
+  //sets initial colour of starting block
+  changeColour();
 });
