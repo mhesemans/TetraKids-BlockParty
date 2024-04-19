@@ -216,8 +216,9 @@ document.addEventListener("DOMContentLoaded", () => {
   //stops shape and generates new shape
   function stopShape() {
     if (
-      currentShape.some((index) =>
-        squares[shapePosition + index + width].classList.contains("blocked") //executes if any squares below moving shape are blocked
+      currentShape.some(
+        (index) =>
+          squares[shapePosition + index + width].classList.contains("blocked") //executes if any squares below moving shape are blocked
       )
     ) {
       currentShape.forEach((index) => {
@@ -229,8 +230,8 @@ document.addEventListener("DOMContentLoaded", () => {
       //
       //generates new shape on grid, sets colour and position
       //
-      selectShape = getRandomInt(maxShapes); 
-      currentShape = allShapes[selectShape][ShapeRotation]; 
+      selectShape = getRandomInt(maxShapes);
+      currentShape = allShapes[selectShape][ShapeRotation];
       changeColour();
       shapePosition = 5;
       draw();
@@ -331,7 +332,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function deactivateControls() {
     //calls dropShape function when button "dropShape" is clicked
-    document.getElementById("dropShape").removeEventListener("click", dropShape);
+    document
+      .getElementById("dropShape")
+      .removeEventListener("click", dropShape);
     document.removeEventListener("keydown", (e) => {
       if (e.keyCode === 40) {
         dropShape();
@@ -355,7 +358,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     //calls flipShape function when button "flipShape" is clicked
-    document.getElementById("flipShape").removeEventListener("click", flipShape);
+    document
+      .getElementById("flipShape")
+      .removeEventListener("click", flipShape);
     document.removeEventListener("keydown", (e) => {
       if (e.keyCode === 38) {
         flipShape();
@@ -363,7 +368,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-// activates movement inputs
+  // activates movement inputs
   activateControls();
   // selects the current shape randomly, selects rotation
   selectShape = getRandomInt(maxShapes);
