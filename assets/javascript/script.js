@@ -124,12 +124,16 @@ document.addEventListener("DOMContentLoaded", () => {
   function draw() {
     currentShape.forEach((index) => {
       squares[shapePosition + index].classList.add("shapes");
+      const square = squares[shapePosition + index];
+        square.classList.add(shapeColour); // Add the new color class
     });
   }
   // removes the shape from the grid
   function remove() {
     currentShape.forEach((index) => {
       squares[shapePosition + index].classList.remove("shapes");
+      const square = squares[shapePosition + index];
+        square.classList.remove('red', 'orange', 'yellow', 'green'); // Remove any existing color class
     });
   }
   //move shape down 1 row
@@ -216,17 +220,16 @@ document.addEventListener("DOMContentLoaded", () => {
         squares[shapePosition + index + width].classList.contains("blocked")
       )
     ) {
-      currentShape.forEach((index) =>
-        squares[shapePosition + index].classList.add("blocked")
-      );
-      currentShape.forEach((index) =>
-        squares[shapePosition + index].classList.remove("shapes")
-      );
+      currentShape.forEach((index) => {
+        const square = squares[shapePosition + index];
+        square.classList.add("blocked");
+        square.classList.remove("shapes", "red", "orange", "yellow", "green");
+    });
       scorePoints();
       selectShape = getRandomInt(maxShapes);
       currentShape = allShapes[selectShape][ShapeRotation];
-      shapePosition = 5;
       changeColour();
+      shapePosition = 5;
       draw();
       endGame();
     }
@@ -327,4 +330,5 @@ document.addEventListener("DOMContentLoaded", () => {
     // selects the current shape randomly, selects rotation
     selectShape = getRandomInt(maxShapes);
     currentShape = allShapes[selectShape][ShapeRotation];
+    changeColour();
 });
