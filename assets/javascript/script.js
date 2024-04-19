@@ -1,16 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const grid = document.querySelector(".grid");
-  const score = document.getElementById("score");
-  const shapesClass = document.getElementsByClassName("shapes");
-  let scoredPoints = 0;
-  const startBtn = document.getElementById("start_btn");
-  const speedUpBtn = document.getElementById("speedUp");
-  const speedDownBtn = document.getElementById("speedDown");
-  let squares = Array.from(document.querySelectorAll(".grid div"));
-  const width = 12;
-  let dropSpeed;
-  let speed = 1000;
-  console.log(squares);
+  const grid = document.querySelector(".grid"); //grid is gamefield
+  const score = document.getElementById("score"); //displays the score above the grid
+  const shapesClass = document.getElementsByClassName("shapes"); //class for shapes, used for identifying position and provides color
+  const width = 12; // width of each row within the grid, 24 rows, 12 squares wide
+  const startBtn = document.getElementById("start_btn"); //Start button, starts the game
 
   //shapes, array of shapes with each shape property including an array of 4 shape positions
   const lShape = [
@@ -96,27 +89,29 @@ document.addEventListener("DOMContentLoaded", () => {
     doubleSquare,
     tripleSquare,
   ];
-  // starting location on grid of shapes
-  let shapePosition = 5;
-  //lenght of allShapes array to get total count of shapes
-  let maxShapes = allShapes.length;
-  let ShapeRotation = 0;
-  console.log(maxShapes);
+
+  let squares = Array.from(document.querySelectorAll(".grid div")); //array of all squares in the game grid
+  let scoredPoints = 0; //var that tracks points scored
+  let dropSpeed;
+  let speed = 1000; //interval duration at which a shape moves
+  let shapePosition = 5; // starting location on grid of shapes
+  let maxShapes = allShapes.length; //length of allShapes array to get total count of shapes
+  let ShapeRotation = 0; //var that defines the index for the individual shapes array that stores location indexes, default is the first rotation
+  let selectShape;
+  let currentShape;
+  let shapeColour;
+
   // random number: source https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
   // selects the current shape randomly, selects rotation
-  let selectShape = getRandomInt(maxShapes);
-  let currentShape = allShapes[selectShape][ShapeRotation];
-  let nextShape = allShapes[getRandomInt(maxShapes)][ShapeRotation];
-
-  console.log(shapePosition);
-  console.log(currentShape);
+  selectShape = getRandomInt(maxShapes);
+  currentShape = allShapes[selectShape][ShapeRotation];
 
   // change shape colour
   function changeColour() {
-    let shapeColour =
+    shapeColour =
       selectShape === 7
         ? "red" //checks index of ShapeRotation and provides value to flipPosition
         : selectShape === 8
@@ -147,14 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
     draw();
     stopShape();
   }
-  //calls dropShape function when button "dropShape" is clicked
-  document.getElementById("dropShape").addEventListener("click", dropShape);
-  document.addEventListener("keydown", (e) => {
-    if (e.keyCode === 40) {
-      dropShape();
-    }
-  }); //shape movement based on https://www.youtube.com/watch?v=Pg1UqzZ5NQM
-
   //start/pause functionality for start button to drop the shapes
   startBtn.addEventListener("click", () => {
     if (dropSpeed) {
@@ -165,22 +152,6 @@ document.addEventListener("DOMContentLoaded", () => {
       dropSpeed = setInterval(dropShape, speed);
     }
   });
-
-  // //speed up modifier
-  // speedUpBtn.addEventListener("click", () =>{
-  //     if(speed>600) {
-  //         speed -= 200;
-  //         console.log(speed);
-  //     }
-  // });
-
-  // //speed down modifier
-  // speedDownBtn.addEventListener("click", () =>{
-  //     if(speed<1600) {
-  //         speed += 200;
-  //         console.log(speed);
-  //     }
-  // });
 
   // move shape left
   function left() {
@@ -202,13 +173,6 @@ document.addEventListener("DOMContentLoaded", () => {
     draw(); //draws shape on grid
     stopShape();
   }
-  //calls left function when button "moveLeft" is clicked
-  document.getElementById("moveLeft").addEventListener("click", left);
-  document.addEventListener("keydown", (e) => {
-    if (e.keyCode === 37) {
-      left();
-    }
-  }); //shape movement based on https://www.youtube.com/watch?v=Pg1UqzZ5NQM
 
   // move shape right
   function right() {
@@ -230,13 +194,6 @@ document.addEventListener("DOMContentLoaded", () => {
     draw(); //draws shape on grid
     stopShape();
   }
-  //calls right function when button "moveRight" is clicked
-  document.getElementById("moveRight").addEventListener("click", right);
-  document.addEventListener("keydown", (e) => {
-    if (e.keyCode === 39) {
-      right();
-    }
-  }); //shape movement based on https://www.youtube.com/watch?v=Pg1UqzZ5NQM
 
   //flips shape
   function flipShape() {
@@ -254,13 +211,6 @@ document.addEventListener("DOMContentLoaded", () => {
     currentShape = allShapes[selectShape][ShapeRotation]; //updates currentShape with rotation index
     draw();
   }
-  //calls flipShape function when button "flipShape" is clicked
-  document.getElementById("flipShape").addEventListener("click", flipShape);
-  document.addEventListener("keydown", (e) => {
-    if (e.keyCode === 38) {
-      flipShape();
-    }
-  }); //shape movement based on https://www.youtube.com/watch?v=Pg1UqzZ5NQM
 
   //stops shape and generates new shape
   function stopShape() {
@@ -338,5 +288,40 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("game ended");
       alert("Game Over! You scored " + scoredPoints + "points!");
     }
+  }
+
+  //shape movement based on https://www.youtube.com/watch?v=Pg1UqzZ5NQM
+  function activateControls() {
+    //calls dropShape function when button "dropShape" is clicked
+    document.getElementById("dropShape").addEventListener("click", dropShape);
+    document.addEventListener("keydown", (e) => {
+      if (e.keyCode === 40) {
+        dropShape();
+      }
+    });
+
+    //calls left function when button "moveLeft" is clicked
+    document.getElementById("moveLeft").addEventListener("click", left);
+    document.addEventListener("keydown", (e) => {
+      if (e.keyCode === 37) {
+        left();
+      }
+    });
+
+    //calls right function when button "moveRight" is clicked
+    document.getElementById("moveRight").addEventListener("click", right);
+    document.addEventListener("keydown", (e) => {
+      if (e.keyCode === 39) {
+        right();
+      }
+    });
+    
+    //calls flipShape function when button "flipShape" is clicked
+    document.getElementById("flipShape").addEventListener("click", flipShape);
+    document.addEventListener("keydown", (e) => {
+      if (e.keyCode === 38) {
+        flipShape();
+      }
+    });
   }
 });
