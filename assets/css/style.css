@@ -45,6 +45,11 @@ used outline-offset for the same width as the outline otherwise the outline widt
     outline-offset: -2px;
 }
 
+/* hides blocked row in bottom of grid */
+.hide {
+    display: none;
+}
+
 /* div with centered content */
 .flexCenter {
     display: flex;
@@ -52,6 +57,7 @@ used outline-offset for the same width as the outline otherwise the outline widt
     align-items: center;
 }
 
+/* styles for block colours */
 .red {
     background-color: red;
     outline: 2px outset rgb(207, 156, 156);
