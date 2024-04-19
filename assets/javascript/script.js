@@ -105,9 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
-  // selects the current shape randomly, selects rotation
-  selectShape = getRandomInt(maxShapes);
-  currentShape = allShapes[selectShape][ShapeRotation];
 
   // change shape colour
   function changeColour() {
@@ -324,4 +321,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  activateControls()
+
+    // selects the current shape randomly, selects rotation
+    selectShape = getRandomInt(maxShapes);
+    currentShape = allShapes[selectShape][ShapeRotation];
 });
