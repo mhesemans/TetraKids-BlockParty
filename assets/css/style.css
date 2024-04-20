@@ -34,15 +34,17 @@ section {
     background-color: darkorange;
     outline: 2px outset rgb(207, 156, 156);
     outline-offset: -2px;
+    border-radius: 5px;
 }
 
 /* styling for blocked squares
 Used outline instead of borders are border increases the size of the div
 used outline-offset for the same width as the outline otherwise the outline width takes up unblocked squares' space */
 .blocked {
-    background-color: gray;
-    outline: 2px outset rgb(207, 156, 156);
+    background-color: rgb(130, 121, 121);
+    outline: 2px outset rgb(177, 167, 167);
     outline-offset: -2px;
+    border-radius: 3px;
 }
 
 /* hides blocked row in bottom of grid */
@@ -60,7 +62,7 @@ used outline-offset for the same width as the outline otherwise the outline widt
 /* styles for block colours */
 .red {
     background-color: red;
-    outline: 2px outset rgb(207, 156, 156);
+    outline: 2px outset rgb(255, 96, 96);
     outline-offset: -2px;
 }
 
@@ -72,12 +74,12 @@ used outline-offset for the same width as the outline otherwise the outline widt
 
 .yellow {
     background-color: yellow;
-    outline: 2px outset rgb(207, 156, 156);
+    outline: 2px outset rgb(243, 243, 166);
     outline-offset: -2px;
 }
 
 .green {
     background-color: green;
-    outline: 2px outset rgb(207, 156, 156);
+    outline: 2px outset rgb(11, 168, 11);
     outline-offset: -2px;
 }
