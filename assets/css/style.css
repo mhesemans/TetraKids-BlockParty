@@ -83,3 +83,20 @@ used outline-offset for the same width as the outline otherwise the outline widt
     outline: 2px outset rgb(11, 168, 11);
     outline-offset: -2px;
 }
+
+/* button styles */
+#moveLeft {
+    margin-right: 12px;
+}
+
+#moveRight {
+    margin-left: 12px;
+}
+
+#flipShape {
+    margin-top: 6px;
+}
+
+#dropShape {
+    margin-top: 6px;
+}
