@@ -12,6 +12,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 15px;
 }
 
 /* game"field" */
@@ -84,7 +85,7 @@ used outline-offset for the same width as the outline otherwise the outline widt
     outline-offset: -2px;
 }
 
-/* button styles */
+/* movement button styles */
 #moveLeft {
     margin-right: 12px;
 }
@@ -98,5 +99,5 @@ used outline-offset for the same width as the outline otherwise the outline widt
 }
 
 #dropShape {
-    margin-top: 6px;
+    margin: 6px 0 12px 0;
 }
