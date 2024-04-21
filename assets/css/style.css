@@ -33,6 +33,7 @@ p {
     position: absolute;
     top: 100px;
     left: calc(50% - 110px);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* styling for the game-rules div */
@@ -45,6 +46,7 @@ p {
     z-index: 999;
     position: absolute;
     left: calc(50% - 140px);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* hides the controls for keyboard paragraph for mobile view */
@@ -164,6 +166,32 @@ used outline-offset for the same width as the outline otherwise the outline widt
 #drop_shape {
     margin: 6px 0 12px 0;
 }
+
+/* Style the game end div */
+#game_end {
+    background-color: #182834;
+    border-radius: 10px;
+    padding: 24px;
+    width: 220px;
+    text-align: center;
+    z-index: 999;
+    position: absolute;
+    top: 100px;
+    left: calc(50% - 110px);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+#game_end h2 {
+    margin-bottom: 20px;
+}
+
+#play_again {
+    display: inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
 /* Media Query: mobiles (320 px and up)*/
 @media screen and (min-width:320px) {
     #game_rules {
