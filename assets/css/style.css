@@ -5,6 +5,25 @@ main {
     width: 100%;
 }
 
+/* styles the div that displays the javascript disabled message */
+.no-script-div {
+    background-color: #F0EAD6;
+    border-radius: 10px;
+    padding: 24px;
+    width: 240px;
+    text-align: center;
+    z-index: 999;
+    position: absolute;
+    top: 240px;
+}
+
+/* provides body background */
+body {
+    background-image: url("../images/bgimg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /* game background */
 section {
     width: 320px;
