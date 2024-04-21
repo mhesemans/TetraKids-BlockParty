@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const grid = document.querySelector(".grid"); //grid is gamefield
   const score = document.getElementById("score"); //displays the score above the grid
-  const shapesClass = document.getElementsByClassName("shapes"); //class for shapes, used for identifying position and provides color
+  const gameRules = document.getElementById("game_rules") //id for game-rules, a div that displays controls and game rules
   const width = 12; // width of each row within the grid, 24 rows, 12 squares wide
   const startBtn = document.getElementById("start_btn"); //Start button, starts the game
 
@@ -347,12 +347,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  //start/pause functionality for start button to drop the shapes
+  //start functionality for start button to drop the shapes
   startBtn.addEventListener("click", () => {
     draw();
     dropSpeed = setInterval(dropShape, speed);
     activateControls();
     startBtn.classList.add("hide");
+    gameRules.classList.add("hide");
   });
 
   // selects the current shape randomly, selects rotation
