@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=EB+Garamond&display=swap');
+/* sets default colour, font and zeroes padding and margin */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #ffffff;
+    font-family: 'EB Garamond', sans-serif;
+}
+/* centers content in main */
 main {
     display: flex;
     justify-content: center;
@@ -7,14 +17,15 @@ main {
 
 /* styles the div that displays the javascript disabled message */
 .no-script-div {
-    background-color: #F0EAD6;
+    background-color: #182834;
     border-radius: 10px;
     padding: 24px;
-    width: 240px;
+    width: 220px;
     text-align: center;
     z-index: 999;
     position: absolute;
-    top: 240px;
+    top: 100px;
+    left: calc(50% - 110px);
 }
 
 /* provides body background */
@@ -41,6 +52,7 @@ section {
     background-color: aqua;
     display: flex;
     flex-wrap: wrap;
+    border-radius: 5px;
 }
 
 /* individual grid locations */
@@ -73,7 +85,7 @@ used outline-offset for the same width as the outline otherwise the outline widt
 }
 
 /* div with centered content */
-.flexCenter {
+.flex-center {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -105,18 +117,18 @@ used outline-offset for the same width as the outline otherwise the outline widt
 }
 
 /* movement button styles */
-#moveLeft {
+#move_left {
     margin-right: 12px;
 }
 
-#moveRight {
+#move_right {
     margin-left: 12px;
 }
 
-#flipShape {
+#flip_shape {
     margin-top: 6px;
 }
 
-#dropShape {
+#drop_shape {
     margin: 6px 0 12px 0;
 }
