@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   const grid = document.querySelector(".grid"); //grid is gamefield
   const score = document.getElementById("score"); //displays the score above the grid
-  const gameRules = document.getElementById("game_rules") //id for game-rules, a div that displays controls and game rules
+  const gameRules = document.getElementById("game_rules"); //id for game-rules, a div that displays controls and game rules
   const width = 12; // width of each row within the grid, 24 rows, 12 squares wide
   const startBtn = document.getElementById("start_btn"); //Start button, starts the game
+  const playAgainBtn = document.getElementById("play_again"); //play again button, refreshes page and restarts game
 
   //shapes, array of shapes with each shape property including an array of 4 shape positions
   const lShape = [
@@ -269,8 +270,8 @@ document.addEventListener("DOMContentLoaded", () => {
       )
     ) {
       clearInterval(dropSpeed);
-      alert("Game Over! You scored " + scoredPoints + "points!");
       deactivateControls();
+      showEndScore();
     }
   }
 
@@ -347,13 +348,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Function to refresh the browser page from https://stackoverflow.com/questions/3715047/how-to-reload-a-page-using-javascript
+  function refreshPage() {
+    location.reload();
+  }
+  // Button calls refreshPage function
+  playAgainBtn.addEventListener("click", () => {
+    refreshPage();
+  });
+
+  // Function to make the game_end div visible
+  function showEndScore() {
+    let endScore = document.getElementById("game_end");
+    endScore.style.display = "block";
+  }
+
   //start functionality for start button to drop the shapes
   startBtn.addEventListener("click", () => {
-    draw();
-    dropSpeed = setInterval(dropShape, speed);
-    activateControls();
-    startBtn.classList.add("hide");
-    gameRules.classList.add("hide");
+    draw(); //draws first shape on grid
+    dropSpeed = setInterval(dropShape, speed); //Shape starts moving down every second
+    activateControls(); // enables the movement inputs
+    startBtn.classList.add("hide"); // hides the start button
+    gameRules.classList.add("hide"); // hides the game rules
   });
 
   // selects the current shape randomly, selects rotation
