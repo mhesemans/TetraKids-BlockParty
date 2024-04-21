@@ -186,6 +186,14 @@ used outline-offset for the same width as the outline otherwise the outline widt
     margin-bottom: 20px;
 }
 
+#game_end p {
+    font-size: 100%;
+}
+
+#game_end span {
+    margin-left: 1vw;
+}
+
 #play_again {
     display: inline-block;
     margin-top: 20px;
