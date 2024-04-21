@@ -196,6 +196,64 @@ document.addEventListener("DOMContentLoaded", () => {
     draw();
   }
 
+  // Event handler functions for movement controls based on https://www.youtube.com/watch?v=Pg1UqzZ5NQM
+  function dropShapeHandler(e) {
+    if (e.keyCode === 40) {
+      dropShape();
+    }
+  }
+
+  function leftHandler(e) {
+    if (e.keyCode === 37) {
+      left();
+    }
+  }
+
+  function rightHandler(e) {
+    if (e.keyCode === 39) {
+      right();
+    }
+  }
+
+  function flipShapeHandler(e) {
+    if (e.keyCode === 38) {
+      flipShape();
+    }
+  }
+
+  // calls event handler functions based on https://codehs.gitbooks.io/introcs/content/Animation-and-Games/key-events.html
+  function activateControls() {
+    document.getElementById("drop_shape").addEventListener("click", dropShape);
+    document.addEventListener("keydown", dropShapeHandler);
+
+    document.getElementById("move_left").addEventListener("click", left);
+    document.addEventListener("keydown", leftHandler);
+
+    document.getElementById("move_right").addEventListener("click", right);
+    document.addEventListener("keydown", rightHandler);
+
+    document.getElementById("flip_shape").addEventListener("click", flipShape);
+    document.addEventListener("keydown", flipShapeHandler);
+  }
+
+  function deactivateControls() {
+    document
+      .getElementById("drop_shape")
+      .removeEventListener("click", dropShape);
+    document.removeEventListener("keydown", dropShapeHandler);
+
+    document.getElementById("move_left").removeEventListener("click", left);
+    document.removeEventListener("keydown", leftHandler);
+
+    document.getElementById("move_right").removeEventListener("click", right);
+    document.removeEventListener("keydown", rightHandler);
+
+    document
+      .getElementById("flip_shape")
+      .removeEventListener("click", flipShape);
+    document.removeEventListener("keydown", flipShapeHandler);
+  }
+
   //stops shape and generates new shape
   function stopShape() {
     if (
@@ -273,79 +331,6 @@ document.addEventListener("DOMContentLoaded", () => {
       clearInterval(dropSpeed);
       showEndScore();
     }
-  }
-
-  //shape movement based on https://www.youtube.com/watch?v=Pg1UqzZ5NQM
-  function activateControls() {
-    //calls dropShape function when button "dropShape" is clicked
-    document.getElementById("drop_shape").addEventListener("click", dropShape);
-    document.addEventListener("keydown", (e) => {
-      if (e.keyCode === 40) {
-        dropShape();
-      }
-    });
-
-    //calls left function when button "moveLeft" is clicked
-    document.getElementById("move_left").addEventListener("click", left);
-    document.addEventListener("keydown", (e) => {
-      if (e.keyCode === 37) {
-        left();
-      }
-    });
-
-    //calls right function when button "moveRight" is clicked
-    document.getElementById("move_right").addEventListener("click", right);
-    document.addEventListener("keydown", (e) => {
-      if (e.keyCode === 39) {
-        right();
-      }
-    });
-
-    //calls flipShape function when button "flipShape" is clicked
-    document.getElementById("flip_shape").addEventListener("click", flipShape);
-    document.addEventListener("keydown", (e) => {
-      if (e.keyCode === 38) {
-        flipShape();
-      }
-    });
-  }
-
-  function deactivateControls() {
-    //calls dropShape function when button "dropShape" is clicked
-    document
-      .getElementById("drop_shape")
-      .removeEventListener("click", dropShape);
-    document.removeEventListener("keydown", (e) => {
-      if (e.keyCode === 40) {
-        dropShape();
-      }
-    });
-
-    //calls left function when button "moveLeft" is clicked
-    document.getElementById("move_left").removeEventListener("click", left);
-    document.removeEventListener("keydown", (e) => {
-      if (e.keyCode === 37) {
-        left();
-      }
-    });
-
-    //calls right function when button "moveRight" is clicked
-    document.getElementById("move_right").removeEventListener("click", right);
-    document.removeEventListener("keydown", (e) => {
-      if (e.keyCode === 39) {
-        right();
-      }
-    });
-
-    //calls flipShape function when button "flipShape" is clicked
-    document
-      .getElementById("flip_shape")
-      .removeEventListener("click", flipShape);
-    document.removeEventListener("keydown", (e) => {
-      if (e.keyCode === 38) {
-        flipShape();
-      }
-    });
   }
 
   // Function to refresh the browser page from https://stackoverflow.com/questions/3715047/how-to-reload-a-page-using-javascript
