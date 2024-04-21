@@ -39,9 +39,19 @@
   </head>
   <body>
     <main>
+        <!-- shows message if javascript is disabled -->
+      <noscript>
+        <div class="no-script-div">
+          Uh Oh!<br /><br />
+          It looks like you've got JavaScript disabled on your browser.<br />
+          You will need to turn it back on if you would like to play this game!
+        </div>
+      </noscript>
+
       <section>
         <!-- Score -->
         <h2>SCORE: <span id="score">0</span></h2>
+
         <!-- Start Button -->
         <button id="start_btn">Start Game</button>
         <!-- Grid for 288 blocks -->
