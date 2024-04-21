@@ -21,6 +21,7 @@ main {
 p {
     font-size: 1.5vh;
 }
+
 /* styles the div that displays the javascript disabled message */
 .no-script-div {
     background-color: #182834;
@@ -33,6 +34,7 @@ p {
     top: 100px;
     left: calc(50% - 110px);
 }
+
 /* styling for the game-rules div */
 #game_rules {
     background-color: #182834;
@@ -44,12 +46,14 @@ p {
     position: absolute;
     left: calc(50% - 140px);
 }
+
 /* hides the controls for keyboard paragraph for mobile view */
 .controls-keyboard {
     display: none;
 }
+
 /* start button styling */
-#start_btn img{
+#start_btn img {
     border: 2px solid red;
     margin-top: 16px;
     border-radius: 15px;
@@ -159,4 +163,33 @@ used outline-offset for the same width as the outline otherwise the outline widt
 
 #drop_shape {
     margin: 6px 0 12px 0;
+}
+/* Media Query: mobiles (320 px and up)*/
+@media screen and (min-width:320px) {
+    #game_rules {
+        width: 320px;
+        left: calc(50% - 160px);
+    }
+}
+
+/* Media Query: mobiles (400 px and up)*/
+@media screen and (min-width:400px) {
+    #game_rules {
+        width: 400px;
+        left: calc(50% - 200px);
+    }
+}
+
+/* Media Query: laptops and larger (1024 px and up)*/
+@media screen and (min-width:1024px) {
+
+    /* shows keyboard controls paragraph for game rules */
+    .controls-keyboard {
+        display: block;
+    }
+
+    /* hides mobile controls paragraph for game rules */
+    .controls-mobile {
+        display: none;
+    }
 }
