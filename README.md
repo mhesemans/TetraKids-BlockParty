@@ -62,3 +62,5 @@ I've tested the functionality of the flipShape() function and the error no longe
 Moving an object with arrow keys:
 
 https://www.youtube.com/watch?v=Pg1UqzZ5NQM
+
+Bug: deactivateControls stopped working after the latest function to refresh the page was added.
