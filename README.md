@@ -1,5 +1,6 @@
 # Tetra Kids: Block Party - Project Portfolio 2 - HTML, CSS & Javascript
 
+Game can be accessed on: https://mhesemans.github.io/TetraKids-BlockParty/
 
 Move left function not working on button press, console reads:
 index.html:332 Uncaught ReferenceError: left is not defined
