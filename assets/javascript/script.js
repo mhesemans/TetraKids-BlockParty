@@ -359,6 +359,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Function to make the game_end div visible
   function showEndScore() {
+    let setScore = document.getElementById("final_score");
+    setScore.textContent = (scoredPoints);
     let endScore = document.getElementById("game_end");
     endScore.style.display = "block";
   }
