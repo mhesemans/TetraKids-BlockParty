@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //shape movement based on https://www.youtube.com/watch?v=Pg1UqzZ5NQM
   function activateControls() {
     //calls dropShape function when button "dropShape" is clicked
-    document.getElementById("dropShape").addEventListener("click", dropShape);
+    document.getElementById("drop_shape").addEventListener("click", dropShape);
     document.addEventListener("keydown", (e) => {
       if (e.keyCode === 40) {
         dropShape();
@@ -285,7 +285,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     //calls left function when button "moveLeft" is clicked
-    document.getElementById("moveLeft").addEventListener("click", left);
+    document.getElementById("move_left").addEventListener("click", left);
     document.addEventListener("keydown", (e) => {
       if (e.keyCode === 37) {
         left();
@@ -293,7 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     //calls right function when button "moveRight" is clicked
-    document.getElementById("moveRight").addEventListener("click", right);
+    document.getElementById("move_right").addEventListener("click", right);
     document.addEventListener("keydown", (e) => {
       if (e.keyCode === 39) {
         right();
@@ -301,7 +301,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     //calls flipShape function when button "flipShape" is clicked
-    document.getElementById("flipShape").addEventListener("click", flipShape);
+    document.getElementById("flip_shape").addEventListener("click", flipShape);
     document.addEventListener("keydown", (e) => {
       if (e.keyCode === 38) {
         flipShape();
@@ -312,7 +312,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function deactivateControls() {
     //calls dropShape function when button "dropShape" is clicked
     document
-      .getElementById("dropShape")
+      .getElementById("drop_shape")
       .removeEventListener("click", dropShape);
     document.removeEventListener("keydown", (e) => {
       if (e.keyCode === 40) {
@@ -321,7 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     //calls left function when button "moveLeft" is clicked
-    document.getElementById("moveLeft").removeEventListener("click", left);
+    document.getElementById("move_left").removeEventListener("click", left);
     document.removeEventListener("keydown", (e) => {
       if (e.keyCode === 37) {
         left();
@@ -329,7 +329,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     //calls right function when button "moveRight" is clicked
-    document.getElementById("moveRight").removeEventListener("click", right);
+    document.getElementById("move_right").removeEventListener("click", right);
     document.removeEventListener("keydown", (e) => {
       if (e.keyCode === 39) {
         right();
@@ -338,7 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //calls flipShape function when button "flipShape" is clicked
     document
-      .getElementById("flipShape")
+      .getElementById("flip_shape")
       .removeEventListener("click", flipShape);
     document.removeEventListener("keydown", (e) => {
       if (e.keyCode === 38) {

@@ -7,11 +7,11 @@
     <!-- Meta Tags for search engines -->
     <meta
       name="description"
-      content="Tetra Kids: Block Party, a fun engaging version of the classic game of Tetris."
+      content="Tetra Kids: Block Party, a fun engaging game inspired by the classic game of Tetris."
     />
     <meta
       name="keywords"
-      content="Tetra Kids, Tetris for Kids, Games for kids, kid's game, Tetris, block game"
+      content="Tetra Kids, Games for kids, kid's game, block game"
     />
     <!-- Script file -->
     <script src="assets/javascript/script.js"></script>
@@ -39,7 +39,7 @@
   </head>
   <body>
     <main>
-        <!-- shows message if javascript is disabled -->
+      <!-- shows message if javascript is disabled -->
       <noscript>
         <div class="no-script-div">
           Uh Oh!<br /><br />
@@ -51,9 +51,13 @@
       <section>
         <!-- Score -->
         <h2>SCORE: <span id="score">0</span></h2>
-
-        <!-- Start Button -->
-        <button id="start_btn">Start Game</button>
+        <!-- Container for game rules and start button -->
+        <div class="game-rules">
+          <!-- Start Button -->
+          <a id="start_btn"
+            ><img src="./assets/images/startBtn.png" alt="Start Button"
+          /></a>
+        </div>
         <!-- Grid for 288 blocks -->
         <div class="grid">
           <div></div>
@@ -357,13 +361,21 @@
           <div class="blocked hide"></div>
           <div class="blocked hide"></div>
         </div>
-        <div class="flexCenter">
-          <a id="moveLeft"> <img src="./assets/images/leftArrow.png" /></a>
-          <a id="flipShape"><img src="./assets/images/flipBtn.png" /></a>
-          <a id="moveRight"><img src="./assets/images/rightArrow.png" /></a>
+        <div class="flex-center">
+          <a id="move_left">
+            <img src="./assets/images/leftArrow.png" alt="Move left button"
+          /></a>
+          <a id="flip_shape"
+            ><img src="./assets/images/flipBtn.png" alt="Flip shape button"
+          /></a>
+          <a id="move_right"
+            ><img src="./assets/images/rightArrow.png" alt="Move right button"
+          /></a>
         </div>
-        <div class="flexCenter">
-          <a id="dropShape"><img src="./assets/images/downArrow.png" /></a>
+        <div class="flex-center">
+          <a id="drop_shape"
+            ><img src="./assets/images/downArrow.png" alt="Move down button"
+          /></a>
         </div>
       </section>
     </main>
