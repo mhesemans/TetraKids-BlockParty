@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const grid = document.querySelector(".grid"); //grid is gamefield
   const score = document.getElementById("score"); //displays the score above the grid
   const gameRules = document.getElementById("game_rules"); //id for game-rules, a div that displays controls and game rules
   const width = 12; // width of each row within the grid, 24 rows, 12 squares wide
@@ -98,9 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let shapePosition = 5; // starting location on grid of shapes
   let maxShapes = allShapes.length; //length of allShapes array to get total count of shapes
   let ShapeRotation = 0; //var that defines the index for the individual shapes array that stores location indexes, default is the first rotation
-  let selectShape;
-  let currentShape;
-  let shapeColour;
+  let selectShape; //var that is assigned a random index for the allshapes array
+  let currentShape; //selects the shape to be displayed on the grid using the selectshape index and the shaperotation index
+  let shapeColour; //var is assigned a colour in the changeColour function to be used to colour in the shape
 
   // random number: source https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
   function getRandomInt(max) {
