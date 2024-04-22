@@ -67,6 +67,7 @@ body {
     background-image: url("../images/bgimg.png");
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100vh;
 }
 
 /* game background */

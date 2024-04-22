@@ -13,8 +13,6 @@
       name="keywords"
       content="Tetra Kids, Games for kids, kid's game, block game"
     />
-    <!-- Script file -->
-    <script src="assets/javascript/script.js"></script>
     <!-- Title -->
     <title>Tetra Kids: Block Party</title>
     <!-- Favicon -->
@@ -55,7 +53,7 @@
         <div id="game_rules">
           <h2>Welcome to Tetra Kids: Block Party!</h2>
           <br />
-          <h4>Game Objective:</h4>
+          <h3>Game Objective:</h3>
           <br />
           <p>
             Blocks will fall down on your screen when the game starts. Try to
@@ -70,7 +68,7 @@
             /><br />
           </p>
           <br />
-          <h4>Game Controls:</h4>
+          <h3>Game Controls:</h3>
           <br />
           <p class="controls-keyboard">
             You can move the blocks left and right using the arrow keys on your
@@ -130,7 +128,7 @@
             ><img src="./assets/images/startBtn.png" alt="Start Button"
           /></a>
         </div>
-
+        <!-- Div that displays the end of game message along with final score and play again button -->
         <div id="game_end">
           <h2>Well done!</h2>
           <p>Your Final Score: <span id="final_score"></span></p>
@@ -141,7 +139,7 @@
           />
         </div>
 
-        <!-- Grid for 288 blocks -->
+        <!-- Grid for 288 blocks (24 rows of 12 squares) -->
         <div class="grid">
           <div></div>
           <div></div>
@@ -431,6 +429,7 @@
           <div></div>
           <div></div>
           <div></div>
+          <!-- row of hidden blocks that mark the bottom edge of the grid -->
           <div class="blocked hide"></div>
           <div class="blocked hide"></div>
           <div class="blocked hide"></div>
@@ -444,6 +443,7 @@
           <div class="blocked hide"></div>
           <div class="blocked hide"></div>
         </div>
+        <!-- container for left, flip and right button controls -->
         <div class="flex-center">
           <a id="move_left">
             <img src="./assets/images/leftArrow.png" alt="Move left button"
@@ -455,6 +455,7 @@
             ><img src="./assets/images/rightArrow.png" alt="Move right button"
           /></a>
         </div>
+        <!-- container for the drop block control -->
         <div class="flex-center">
           <a id="drop_shape"
             ><img src="./assets/images/downArrow.png" alt="Move down button"
@@ -462,5 +463,7 @@
         </div>
       </section>
     </main>
+    <!-- Script file -->
+    <script src="assets/javascript/script.js"></script>
   </body>
 </html>
