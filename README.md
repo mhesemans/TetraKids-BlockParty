@@ -1,6 +1,6 @@
 # Tetra Kids: Block Party - Project Portfolio 2 - HTML, CSS & Javascript
 <div align="center">
-  <img src="https://github.com/mhesemans/savor-timelessness/blob/main/assets/images/savor-timelessness-mockup.png" alt="Home Page">
+  <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/responsive-design.png" alt="Home Page">
 </div>
 
 Hey there, fellow game enthusiasts!
