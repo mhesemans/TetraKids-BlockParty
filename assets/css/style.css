@@ -17,6 +17,12 @@ main {
     width: 100%;
 }
 
+/* style for H1, used for screenreader */
+h1 {
+    z-index: -999;
+    position: absolute;
+    top: -150px;
+}
 /* style for paragraphs */
 p {
     font-size: 1.5vh;
