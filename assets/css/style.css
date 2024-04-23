@@ -157,6 +157,12 @@ used outline-offset for the same width as the outline otherwise the outline widt
     outline-offset: -2px;
 }
 
+.blue {
+    background-color: rgb(44, 184, 212);
+    outline: 2px outset rgb(108, 226, 250);
+    outline-offset: -2px;
+}
+
 /* movement button styles */
 #move_left {
     margin-right: 12px;
