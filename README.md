@@ -55,7 +55,7 @@ The project offers a soothing and enjoyable take on a classic game, providing us
 ### Wireframes
 
 <div align="center">
-  <img src="https://githubusercontent.com/mhesemans/TetraKids-BlockParty/main/assets/images/wireframe.webp" alt="Wireframe">
+  <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/wireframe.webp" alt="Wireframe">
 </div>
 
 The game's visual aspects were designed in Balsamiq Wireframes following the principles of mobile-first design. The wireframes were initially structured for mobile devices to prioritize usability and functionality on smaller screens. This approach helps ensure that the website is accessible and user-friendly across various devices, from smartphones to desktop computers.
@@ -74,13 +74,11 @@ In case the player lands on a nonexistent page, the player is presented with a 4
 ### Colours
 
 <div align="center">
-  <img src="https://github.com/mhesemans/savor-timelessness/blob/main/assets/images/colour-palette.png" alt="Colour palette">
+  <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/colour-palette.webp" alt="Colour palette">
 </div>
 
-- The green hues were selected for their fresh and vibrant appearance, it reflects creativity and innovation.
-- The orange hues infuse warmth and energy into the website, creating a warm and welcoming atmosphere.
-- The almond was added for its neutral tone to highlight text within the page content.
-- Black and white were used for text elements to provide an optimal contrast.
+- The red hues were selected to draw attention to game controls.
+- The blue hues give a sense of openess and freedom to contrast the grid itself.
 
 Move left function not working on button press, console reads:
 index.html:332 Uncaught ReferenceError: left is not defined
