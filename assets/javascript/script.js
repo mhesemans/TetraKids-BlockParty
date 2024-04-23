@@ -76,6 +76,20 @@ document.addEventListener("DOMContentLoaded", () => {
     [0, width, width * 2],
   ];
 
+  const numberFive = [
+    [0, 1, width, width + 1, width + 2],
+    [0, 1, width, width + 1, width * 2],
+    [0, 1, 2, width + 1, width + 2],
+    [1, width, width + 1, width * 2, width * 2 + 1],
+  ];
+
+  const numberFiveLong = [
+    [0, 1, 2, 3, 4],
+    [0, width, width * 2, width * 3, width * 4],
+    [0, 1, 2, 3, 4],
+    [0, width, width * 2, width * 3, width * 4],
+  ];
+
   //Array that contains all shapes
   const allShapes = [
     lShape,
@@ -88,6 +102,8 @@ document.addEventListener("DOMContentLoaded", () => {
     singleSquare,
     doubleSquare,
     tripleSquare,
+    numberFive,
+    numberFiveLong,
   ];
 
   let squares = Array.from(document.querySelectorAll(".grid div")); //array of all squares in the game grid
@@ -115,6 +131,10 @@ document.addEventListener("DOMContentLoaded", () => {
         ? "orange"
         : selectShape === 9
         ? "yellow"
+        : selectShape === 10
+        ? "blue"
+        : selectShape === 11
+        ? "blue"
         : "green";
   }
 
@@ -132,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
     currentShape.forEach((index) => {
       squares[shapePosition + index].classList.remove("shapes");
       const square = squares[shapePosition + index];
-      square.classList.remove("red", "orange", "yellow", "green"); // Remove any existing color class
+      square.classList.remove("red", "orange", "yellow", "green", "blue"); // Remove any existing color class
     });
   }
   //move shape down 1 row
@@ -264,7 +284,14 @@ document.addEventListener("DOMContentLoaded", () => {
       currentShape.forEach((index) => {
         const square = squares[shapePosition + index];
         square.classList.add("blocked"); //stops block, changes colour to grey
-        square.classList.remove("shapes", "red", "orange", "yellow", "green"); //removes colours from blocks
+        square.classList.remove(
+          "shapes",
+          "red",
+          "orange",
+          "yellow",
+          "green",
+          "blue"
+        ); //removes colours from blocks
       });
       scorePoints(); //calls to check if points are scored
       //
