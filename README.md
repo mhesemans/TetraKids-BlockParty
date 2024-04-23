@@ -60,6 +60,20 @@ The project offers a soothing and enjoyable take on a classic game, providing us
 
 The game's visual aspects were designed in Balsamiq Wireframes following the principles of mobile-first design. The wireframes were initially structured for mobile devices to prioritize usability and functionality on smaller screens. This approach helps ensure that the website is accessible and user-friendly across various devices, from smartphones to desktop computers.
 
+
+### Site Structure Overview
+
+Tetra Kids: Block Party has a straightforward design, the player is presented with the game objectives and the controls. After starting the game, the interactive elements are visually clear as to what their function is. Upon game end, the player is presented with their score and the option to play again.
+
+In case the player lands on a nonexistent page, the player is presented with a 404 page that will direct them back to the game.
+
+### Fonts   
+
+**EB Garamond:** This is a clasic serif typeface selected for its elegant capitalization and rounded "a" and "e" giving the lowercase text a playful feel, it's meant to evoke a sense of whimsical playfulness. The font was selected from [google fonts](https://fonts.google.com/specimen/EB+Garamond 'Google Fonts').
+
+### Colours
+
+
 Move left function not working on button press, console reads:
 index.html:332 Uncaught ReferenceError: left is not defined
     at HTMLButtonElement.onclick (index.html:332:44)
