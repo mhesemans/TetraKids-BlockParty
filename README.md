@@ -73,6 +73,14 @@ In case the player lands on a nonexistent page, the player is presented with a 4
 
 ### Colours
 
+<div align="center">
+  <img src="https://github.com/mhesemans/savor-timelessness/blob/main/assets/images/colour-palette.png" alt="Colour palette">
+</div>
+
+- The green hues were selected for their fresh and vibrant appearance, it reflects creativity and innovation.
+- The orange hues infuse warmth and energy into the website, creating a warm and welcoming atmosphere.
+- The almond was added for its neutral tone to highlight text within the page content.
+- Black and white were used for text elements to provide an optimal contrast.
 
 Move left function not working on button press, console reads:
 index.html:332 Uncaught ReferenceError: left is not defined
