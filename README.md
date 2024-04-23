@@ -111,6 +111,70 @@ Visuals are added for the players so that they can recognize the game elements b
 
 The score and the game grid are centered on top of the screen with the game controls directly below. Any other elements are avoided to minimize distractions or sensory overload. The controls are hand-drawn to add to the whimsical relaxed nature of the game.
 
+## Game End and Final Score view
+
+<div align="center">
+  <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/game-end.webp" alt="Game End and Final Score view">
+</div>
+
+At the end of the game the final score is displayed along with the replay button, providing the player with the results of their game session and a quick way to play the game again.
+
+[Back to top](<#contents>)
+---
+
+# Technologies Used
+- [HTML5](w3.org/standards/webdesign/htmlcss 'w3.org')
+    * Page markup.
+- [CSS3](w3.org/standards/webdesign/htmlcss 'w3.org')
+    * Styling of page content.
+- [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript 'mozilla.org JavaScript')
+    * For researching looping code and arrays which I relied on heavily when displaying and moving the shapes across the grid.
+- [Balsamiq Wireframes](https://balsamiq.com/ 'Balsamiq Wireframes')
+    * For generating Wireframes used in design process.
+- [ImageResizer](https://imageresizer.com/ 'Image Resizer')
+    * For cropping and resizing images.
+- [DeepAI](https://deepai.org/machine-learning-model/text2img 'Text to Image AI image generator')
+    * For generating the background image.
+- [Coolors](https://coolors.co/ 'coolors.co')
+    * For creating colour palette
+- [Visual Studio Code](https://code.visualstudio.com/ 'Visual Studio Code')
+    * Used as source-code editor throughout the project
+- [Github](https://github.com/)
+    *  For remote storing and deployment of code and content.
+- [Github pages](https://pages.github.com/ 'Github Pages')
+    * For hosting website.
+- [amiresponsive?] (https://ui.dev/amiresponsive?/ 'amiresponsive')
+    * For creating the Responsive image
+
+[Back to top](<#contents>)
+---
+
+ # Testing
+
+## Validation
+- HTML has been validated with [W3C HTML5 Validator](https://validator.w3.org/).
+    <div align="center">
+    <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/html-validated.png" alt="HTML Validation">
+    </div>
+
+- CSS has been validated with [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
+
+    <div align="center">
+    <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/css-validated.png" alt="CSS Validation">
+    </div>
+
+- Links checked with [W3C Link Checker](https://validator.w3.org/checklink).
+    <div align="center">
+    <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/links-validated.png" alt="Link Validation">
+    </div>
+
+- JS was tested with [jshint] (https://jshint.com/).
+    <div align="center">
+    <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/js-validation-1.png" alt="Link Validation">
+    <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/js-validation-2.png" alt="Link Validation">
+    </div>
+
+
 Move left function not working on button press, console reads:
 index.html:332 Uncaught ReferenceError: left is not defined
     at HTMLButtonElement.onclick (index.html:332:44)
