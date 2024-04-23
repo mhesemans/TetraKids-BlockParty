@@ -80,6 +80,37 @@ In case the player lands on a nonexistent page, the player is presented with a 4
 - The red hues were selected to draw attention to game controls.
 - The blue hues give a sense of openess and freedom to contrast the grid itself.
 
+### Images
+
+<div align="center">
+  <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/bgimg.webp" alt="Background Image">
+</div>
+
+The background image is fun and bright and the colourful cubes represent the various colours used for the shapes within the game.
+
+[Back to top](<#contents>)
+---
+
+# Features
+
+## Game Instructions
+
+<div align="center">
+  <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/game-instructions.webp" alt="Game Instructions">
+</div>
+
+The instructions explain the game objectives and the buttons used to control the movements of the blocks in the game grid to the player.
+Visuals are added for the players so that they can recognize the game elements before the game has started.
+
+## Game view and controls
+
+<div align="center">
+  <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/game-view.webp" alt="Game View"> <br>
+  <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/game-controls.webp" alt="Game Controls">
+</div>
+
+The score and the game grid are centered on top of the screen with the game controls directly below. Any other elements are avoided to minimize distractions or sensory overload. The controls are hand-drawn to add to the whimsical relaxed nature of the game.
+
 Move left function not working on button press, console reads:
 index.html:332 Uncaught ReferenceError: left is not defined
     at HTMLButtonElement.onclick (index.html:332:44)
