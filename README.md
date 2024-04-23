@@ -171,6 +171,26 @@ At the end of the game the final score is displayed along with the replay button
 - JS was tested with [jshint] (https://jshint.com/).
     <div align="center">
     <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/js-validation-1.png" alt="Link Validation">
+    This first set of warnings all relate to the same behaviour:
+
+        // change shape colour
+    function changeColour() {
+        shapeColour =
+        selectShape === 7
+            ? "red" //checks index of ShapeRotation and provides value to flipPosition
+            : selectShape === 8
+            ? "orange"
+            : selectShape === 9
+            ? "yellow"
+            : selectShape === 10
+            ? "blue"
+            : selectShape === 11
+            ? "blue"
+            : "green";
+    }
+
+The line breaks here are added by the code formatter I use in VSCode which is Prettier v10.4.1, as the function runs without issues and the code itself 
+
     <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/js-validation-2.png" alt="Link Validation">
     </div>
 

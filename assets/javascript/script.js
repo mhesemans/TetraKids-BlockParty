@@ -124,9 +124,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // change shape colour
   function changeColour() {
-    shapeColour =
+    shapeColour = // this variable is later used to add the class to the squares related to the shape, the class will apply a colour though the corresponding class in style.css
       selectShape === 7
-        ? "red" //checks index of ShapeRotation and provides value to flipPosition
+        ? "red" //checks index of selectShape and provides value (colour) to shapeColour
         : selectShape === 8
         ? "orange"
         : selectShape === 9
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ? "blue"
         : selectShape === 11
         ? "blue"
-        : "green";
+        : "green"; // basically, if the shape isn't any of the non-4 square shapes defined above, the shape will be green
   }
 
   // SHAPE MOVEMENTS
