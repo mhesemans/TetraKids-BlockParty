@@ -54,6 +54,11 @@ The project offers a soothing and enjoyable take on a classic game, providing us
 
 ### Wireframes
 
+<div align="center">
+  <img src="https://githubusercontent.com/mhesemans/TetraKids-BlockParty/main/assets/images/wireframe.webp" alt="Wireframe">
+</div>
+
+The game's visual aspects were designed in Balsamiq Wireframes following the principles of mobile-first design. The wireframes were initially structured for mobile devices to prioritize usability and functionality on smaller screens. This approach helps ensure that the website is accessible and user-friendly across various devices, from smartphones to desktop computers.
 
 Move left function not working on button press, console reads:
 index.html:332 Uncaught ReferenceError: left is not defined
