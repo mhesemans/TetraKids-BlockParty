@@ -35,6 +35,19 @@ The project offers a soothing and enjoyable take on a classic game, providing us
 
 ## User Stories
 
+- As a parent, I seek a game that offers a slower-paced and simplified gameplay experience for my young child.
+- As a child with autism, I desire a game devoid of internal stressors and overwhelming elements, allowing for focused and enjoyable gameplay.
+- As a casual gamer, I appreciate games that provide a relaxed gaming experience without time constraints or competitive pressure.
+- As an educator or therapist, I aim to utilize games as a tool for promoting motor skills and spatial thinking in children with special needs, integrating fun and accessible gameplay into teaching or therapy sessions.
+
+## Site Objectives
+
+- **Provide an Enjoyable and Accessible Gaming Experience:** The primary objective of the site is to offer users, particularly children and their families, an enjoyable and accessible gaming experience inspired by a popular block-based game. This experience should be inclusive and easy to understand for users of all ages and backgrounds.
+- **Support Learning and Development:** The site aims to support cognitive development, particularly in areas such as spatial thinking and problem-solving skills, through engaging gameplay. By presenting a simplified and relaxed version of the game, it encourages players to explore and develop their abilities in a stress-free environment.
+- **Foster Creativity and Imagination:** Another objective is to foster creativity and imagination in young players by introducing fun and colorful blocks inspired by popular educational content. The game encourages players to experiment with different block arrangements and strategies, sparking their creativity and critical thinking skills.
+- **Promote Family Bonding and Interaction:** The site seeks to promote family bonding and interaction by providing a shared gaming experience that can be enjoyed by both children and adults. Through collaborative play and friendly competition, family members can spend quality time together and create lasting memories.
+- **Accessible Across Devices:** Ensuring accessibility across various devices, including mobile phones, tablets, and desktop computers, is a key objective. This allows users to enjoy the game seamlessly across different platforms, accommodating their preferences and convenience.
+
 Move left function not working on button press, console reads:
 index.html:332 Uncaught ReferenceError: left is not defined
     at HTMLButtonElement.onclick (index.html:332:44)
