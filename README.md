@@ -1,6 +1,6 @@
 # Tetra Kids: Block Party - Project Portfolio 2 - HTML, CSS & Javascript
 <div align="center">
-  <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/responsive-design.png" alt="Home Page">
+  <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/responsive-design.webp" alt="Home Page">
 </div>
 
 Hey there, fellow game enthusiasts!
@@ -47,6 +47,13 @@ The project offers a soothing and enjoyable take on a classic game, providing us
 - **Foster Creativity and Imagination:** Another objective is to foster creativity and imagination in young players by introducing fun and colorful blocks inspired by popular educational content. The game encourages players to experiment with different block arrangements and strategies, sparking their creativity and critical thinking skills.
 - **Promote Family Bonding and Interaction:** The site seeks to promote family bonding and interaction by providing a shared gaming experience that can be enjoyed by both children and adults. Through collaborative play and friendly competition, family members can spend quality time together and create lasting memories.
 - **Accessible Across Devices:** Ensuring accessibility across various devices, including mobile phones, tablets, and desktop computers, is a key objective. This allows users to enjoy the game seamlessly across different platforms, accommodating their preferences and convenience.
+
+[Back to top](<#contents>)
+---
+## Visual Design
+
+### Wireframes
+
 
 Move left function not working on button press, console reads:
 index.html:332 Uncaught ReferenceError: left is not defined
