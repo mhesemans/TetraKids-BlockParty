@@ -84,10 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   const numberFiveLong = [
-    [0, 1, 2, 3, 4],
     [0, width, width * 2, width * 3, width * 4],
     [0, 1, 2, 3, 4],
     [0, width, width * 2, width * 3, width * 4],
+    [0, 1, 2, 3, 4],
   ];
 
   //Array that contains all shapes
