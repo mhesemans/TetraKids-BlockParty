@@ -134,6 +134,7 @@ The background image is fun and bright and the colourful cubes represent the var
 
 The instructions explain the game objectives and the buttons used to control the movements of the blocks in the game grid to the player.
 Visuals are added for the players so that they can recognize the game elements before the game has started.
+This section also contains the start button which will hide the game objectives and will initiate the game and activate the controls.
 
 ## Game view and controls
 
@@ -143,6 +144,8 @@ Visuals are added for the players so that they can recognize the game elements b
 </div>
 
 The score and the game grid are centered on top of the screen with the game controls directly below. Any other elements are avoided to minimize distractions or sensory overload. The controls are hand-drawn to add to the whimsical relaxed nature of the game.
+The score will increment by 1 for each row (or line) that is cleared.
+In addition to the control buttons on the screen, the block movements can also be controlled by using the keyboard buttons as indicated in the game objectives/game controls.
 
 ## Game End and Final Score view
 
@@ -150,7 +153,7 @@ The score and the game grid are centered on top of the screen with the game cont
   <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/game-end.webp" alt="Game End and Final Score view">
 </div>
 
-At the end of the game the final score is displayed along with the replay button, providing the player with the results of their game session and a quick way to play the game again.
+At the end of the game the final score is displayed along with the replay button, providing the player with the results of their game session and a quick way to play the game again. Game controls are also disabled.
 
 [Back to top](<#contents>)
 ---
