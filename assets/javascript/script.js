@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("flip_shape").addEventListener("click", flipShape);
     document.addEventListener("keydown", flipShapeHandler);
   }
-
+  // removes the event listeners for the keys as declared by the event handler functions
   function deactivateControls() {
     document
       .getElementById("drop_shape")

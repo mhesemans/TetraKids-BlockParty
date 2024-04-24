@@ -17,6 +17,39 @@ You can access the game through the following link: <a href="https://mhesemans.g
 
 # contents
 
+- [Objective](#objective)
+- [UX](#ux)
+   * [Target Audience](#target-audience)
+   * [User Stories](#user-stories)
+   * [Site Objectives](#site-objectives)
+   * [Visual Design](#visual-design)
+      + [Wireframes](#wireframes)
+      + [Site Structure Overview](#site-structure-overview)
+      + [Fonts   ](#fonts)
+      + [Colours](#colours)
+      + [Images](#images)
+- [Features](#features)
+   * [Game Instructions](#game-instructions)
+   * [Game view and controls](#game-view-and-controls)
+   * [Game End and Final Score view](#game-end-and-final-score-view)
+- [Technologies Used](#technologies-used)
+- [Testing](#testing)
+   * [Validation](#validation)
+   * [Quality Control and Gameplay Testing](#quality-control-and-gameplay-testing)
+   * [Solved Bugs](#solved-bugs)
+      + [Bug 1](#bug-1)
+      + [Bug 2](#bug-2)
+      + [Bug 3](#bug-3)
+   * [Known Bugs](#known-bugs)
+      + [Do the flippy thing](#do-the-flippy-thing)
+      + [Oh no! It stopped!](#oh-no-it-stopped)
+- [Deployment & Local Development](#deployment-local-development)
+   * [Deployment](#deployment)
+   * [Local Development](#local-development)
+      + [How to Fork](#how-to-fork)
+      + [How to Clone](#how-to-clone)
+- [Credits](#credits)
+- [Acknowledgements](#acknowledgements)
 
 # Objective
 
@@ -149,7 +182,11 @@ At the end of the game the final score is displayed along with the replay button
 [Back to top](<#contents>)
 ---
 
- # Testing
+# Testing
+
+The code was continuously tested throughout the development process:
+- by using the console.log to ensure values were being passed through correctly
+- using Chrome development tools for troubleshooting
 
 ## Validation
 - HTML has been validated with [W3C HTML5 Validator](https://validator.w3.org/).
@@ -171,92 +208,194 @@ At the end of the game the final score is displayed along with the replay button
 - JS was tested with [jshint] (https://jshint.com/).
     <div align="center">
     <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/js-validation-1.png" alt="Link Validation">
+    </div>
     This first set of warnings all relate to the same behaviour:
 
         // change shape colour
-    function changeColour() {
-        shapeColour =
-        selectShape === 7
-            ? "red" //checks index of ShapeRotation and provides value to flipPosition
-            : selectShape === 8
-            ? "orange"
-            : selectShape === 9
-            ? "yellow"
-            : selectShape === 10
-            ? "blue"
-            : selectShape === 11
-            ? "blue"
-            : "green";
-    }
+        function changeColour() {
+            shapeColour = // this variable is later used to add the class to the squares related to the shape, the class will apply a colour though the corresponding class in style.css
+            selectShape === 7
+                ? "red" //checks index of selectShape and provides value (colour) to shapeColour
+                : selectShape === 8
+                ? "orange"
+                : selectShape === 9
+                ? "yellow"
+                : selectShape === 10
+                ? "blue"
+                : selectShape === 11
+                ? "blue"
+                : "green"; // basically, if the shape isn't any of the non-4 square shapes defined above, the shape will be green
+        }
 
-The line breaks here are added by the code formatter I use in VSCode which is Prettier v10.4.1, as the function runs without issues and the code itself 
-
+The line breaks here are added by the code formatter I use in VSCode which is Prettier v10.4.1, as the function runs without issues and the code itself is commented
+    <div align="center">
     <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/js-validation-2.png" alt="Link Validation">
     </div>
 
+These warnings are caused by the largest function used here and relates to the fact that several functions are declared within this loop function. Ideally these functions should have been written outside of the loop and only called within this looping function as currently the function will be redeclared for each iteration through the loop. These functions also all use variables that are declared outside of the smaller functions which can make it confusing.
 
-Move left function not working on button press, console reads:
-index.html:332 Uncaught ReferenceError: left is not defined
-    at HTMLButtonElement.onclick (index.html:332:44)
+However as the function is behaving as expected within the game I don't currently see the need to rewrite this code block and risk further troubleshooting, it is certainly something I will avoid repeating in the future as it makes the code much harder to understand. To help mitigate this I have provided comments throughout to help clarify each function within this loop.
 
-added eventlistener in js as per https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onclick_addeventlistener
+- Performance, Accessibility, Best Practices and SEO checked with [PageSpeed](https://pagespeed.web.dev/analysis/ 'PageSpeed Insights')
+ <div align="center">
+    <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/pagespeed-validation.png" alt="PageSpeed Validation">
+    </div>
+- Colour Contrast additionally checked with [color.a11y](https://color.a11y.com/Contrast/ 'Color Contrast Accessibility Validator')
+ <div align="center">
+    <img src="https://github.com/mhesemans/TetraKids-BlockParty/blob/main/assets/images/colour-contrast.png" alt="PageSpeed Validation">
+    </div>
 
-checking if any elements in array are true: 
+## Quality Control and Gameplay Testing
+
+The game was extensively tested by a 5 year old boy and his father and ultimately achieved approval at the end of a stringent quality procedure full of excitement and laughs.
+
+## Solved Bugs
+### Bug 1
+- The move left function was not working on button press, console reads:
+
+        index.html:332 Uncaught ReferenceError: left is not defined
+                at HTMLButtonElement.onclick (index.html:332:44)
+
+        <button id="moveLeft" onclick="left()">Left</button>
+
+    added eventlistener in js as per https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onclick_addeventlistener
+
+        document.getElementById("moveLeft").addEventListener("click", left)
+### Bug 2
+- The below error occurred seemingly randomly when flipping shapes:
+
+        Uncaught TypeError: Cannot read properties of undefined (reading 'forEach')
+        at remove (app.js:73:22)
+        at dropShape (app.js:80:9)
+
+    The flipShape function at that time:
+
+        // flip shape
+            function flipShape() {
+                remove()
+                let flipPosition = ShapeRotation === 0 ? 1
+                                : ShapeRotation === 1 ? 2
+                                : ShapeRotation === 2 ? 3
+                                : ShapeRotation === 3 ? 4
+                                : 0
+                ShapeRotation = flipPosition
+                console.log(ShapeRotation)
+                currentShape = allShapes[selectShape][ShapeRotation]
+                draw()
+            }
+
+    Initially, it wasn't clear what was causing the issue, but flipShape() seemed to be the cause. The error didn't consistently occur immediately after flipping but appeared later at times, sometimes when a new shape was drawn. I couldn't identify a specific pattern, but flipShape() was involved each time. I ruled out the remove() and draw() functions within flipShape() because they were being used without issues for other functions in the script.
+
+    I looked for a different way to change the ShapeRotation variable to select the correct index and thought of the remainder operator, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder which would look like: (ShapeRotation + 1) % 4
+    But at that stage I realized that the flipShape function I was using had the line : ShapeRotation === 3 ? 4, as there is no index 4, I deleted that line so the function now reads:
+
+        function flipShape() {
+            remove()
+            let flipPosition = ShapeRotation === 0 ? 1
+                            : ShapeRotation === 1 ? 2
+                            : ShapeRotation === 2 ? 3
+                            : 0
+            ShapeRotation = flipPosition
+            console.log(ShapeRotation)
+            currentShape = allShapes[selectShape][ShapeRotation]
+            draw()
+        }
+
+    I've tested the functionality of the flipShape() function and the error no longer occurs.
+
+### Bug 3
+- The function deactivateControls() stopped working after having added in another eventlistener for the play-again button. It wasn't clear to me why this addition would have caused this and I initially rolled back the new eventlistener. However I was still getting inconsistent behaviour with the controls not always deactivating so the issue may have existed previously.
+
+    I researched online through multiple resources as to what could be going wrong and eventually found a different approach on:
+    https://codehs.gitbooks.io/introcs/content/Animation-and-Games/key-events.html
+
+    I declared event handlers separately and then called those within the activateControls and deactivateControls functions which resulted in the desired behaviour of disabling the controls at the end of the game.
+
+    This involved quite a large rewrite of the functions and can be found in commit: 38a1f61e0dbbf6cd4332425248a85741d8bd8987 (38a1f61)
+
+## Known Bugs
+
+### Do the flippy thing
+- Blocks can clip through the right edge of the game grid, splitting off blocks causing a chunk to reappear on the left side of the grid. The issue can be resolved by a number of approaches, for example redrawing the shape and shapePosition -= 1 if some of the indexes of the new position return a true for
+
+        (shapePosition + index) % width === width -1)
+    Or perhaps by adding a variable to check if the shape is currently at the right edge and to decrement the shapePostion indexes by 1  before redrawing the shape.
+
+    In any case, one of the testers enjoyed this "funny feature" so much that it would have been adverse to the game play experience at this point.
+
+### Oh no! It stopped!
+- In a game of Tetris, you may have noticed that dropping a block all the way to the last valid row still briefly allows you to position the block to the left or right. Unfortunately, in Tetra Kids: Block Party, the blocks seem to be too lazy and take a rest at the first opportunity.
+I've tried a number of approached including timeout:
+
+        stopShapeTimeout = setTimeout(() => {
+            stopShape(); // Call stopShape after the delay
+        }, 1000);
+
+    I also attempted to add event listeners for the keydown and keyup events and using a variable to only execute the stopShape function when keys are being pressed.
+
+        if (!keyIsPressed) {
+        // Check if no key is pressed
+        stopShape();
+        }
+    However all of these approaches actually caused the blocks to exit the grid and result in errors as the shapes would be out of bounds.
+
+    As I couldn't identify a solution for this bug, despite researching it for several days, I left this issue for future me to solve. Good luck buddy!
+
+[Back to top](<#contents>)
+---
+
+# Deployment & Local Development
+
+## Deployment
+
+The site was deployed to GitHub pages.
+
+  - In the GitHub repository, navigate to the Settings tab 
+  - From the source section drop-down menu, select the Master Branch
+  - Wait untill banner text identifies that the branch was successfully deployed
+
+The live link can be found here - https://mhesemans.github.io/TetraKids-BlockParty/
+
+## Local Development
+
+### How to Fork
+
+To fork the repository:
+
+1. Log into Github
+2. Go to the repository at https://github.com/mhesemans/TetraKids-BlockParty/
+3. Click the Fork button
+
+### How to Clone
+
+To clone the repository:
+
+1. Log into Github
+2. Go to the repository at https://github.com/mhesemans/TetraKids-BlockParty/
+3. Click the code button, select HTTPS, SSH or GitHub CLI and copy the given link
+4. Open the terminal in VSCode (or other) and select the desired location (or create a new one)
+5. Type 'git clone' into the terminal and then paste the link
+6. The repository should now be available at the location provided in step 4
+
+
+[Back to top](<#contents>)
+---
+
+# Credits
+
+* Fonts from [Google Fonts](https://fonts.google.com/)
+* Favicons made in [Gimp](https://www.gimp.org/)
+* Checking if any elements in array are true: 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
-
-checking if an element has a certain class:
+* Checking if an element has a certain class:
 https://www.shecodes.io/athena/41733-how-to-check-if-a-class-has-been-added-to-an-element-in-javascript#:~:text=in%208.5%20seconds-,To%20check%20if%20a%20class%20has%20been%20added%20to%20an,exists%20in%20the%20element's%20classList%20.
-
-flipping shapes:
+* Flipping shapes:
 https://stackoverflow.com/questions/47692216/javascript-tetris-how-to-turn-around-the-blocks
+* Any other code that was used or influenced from a different source has been commented and credited within the code
 
-The below error occurred randomly when flipping shapes:
+# Acknowledgements
 
-Uncaught TypeError: Cannot read properties of undefined (reading 'forEach')
-    at remove (app.js:73:22)
-    at dropShape (app.js:80:9)
+This website was created for the 2nd portfolio project for CodeInstitute while participating in the Full Stack Software Developer Diploma course. Special thanks to my mentor Rory Sheridan for testing, advice and feedback & Cohort Facilitator Amy Richardson for providing advice and documentation.
+Massive credit to my son Orinn who was immediately enthralled with the idea of a game and generously donated a large amount of his time providing feedback and testing.
 
-The flipShape function at that time:
-
-  // flip shape
-    function flipShape() {
-        remove()
-        let flipPosition = ShapeRotation === 0 ? 1
-                        : ShapeRotation === 1 ? 2
-                        : ShapeRotation === 2 ? 3
-                        : ShapeRotation === 3 ? 4
-                        : 0
-        ShapeRotation = flipPosition
-        console.log(ShapeRotation)
-        currentShape = allShapes[selectShape][ShapeRotation]
-        draw()
-    }
-
-Initially, it wasn't clear what was causing the issue, but flipShape() seemed to be the cause. The error didn't consistently occur immediately after flipping but appeared later at times, sometimes when a new shape was drawn. I couldn't identify a specific pattern, but flipShape() was involved each time. I ruled out the remove() and draw() functions within flipShape() because they were being used without issues for other functions in the script.
-
-I looked for a different way to change the ShapeRotation variable to select the correct index and thought of the remainder operator, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder which would look like: (ShapeRotation + 1) % 4
-But at that stage I realized that the flipShape function I was using had the line : ShapeRotation === 3 ? 4, as there is no index 4, I deleted that line so the function now reads:
-
-    function flipShape() {
-        remove()
-        let flipPosition = ShapeRotation === 0 ? 1
-                        : ShapeRotation === 1 ? 2
-                        : ShapeRotation === 2 ? 3
-                        : 0
-        ShapeRotation = flipPosition
-        console.log(ShapeRotation)
-        currentShape = allShapes[selectShape][ShapeRotation]
-        draw()
-    }
-
-I've tested the functionality of the flipShape() function and the error no longer occurs.
-
-
-Moving an object with arrow keys:
-
-https://www.youtube.com/watch?v=Pg1UqzZ5NQM
-
-Bug: deactivateControls stopped working after the latest function to refresh the page was added.
-
-Responsive image created using
-https://ui.dev/amiresponsive?
+[Back to top](<#contents>)
